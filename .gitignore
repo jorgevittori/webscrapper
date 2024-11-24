@@ -1,0 +1,5 @@
+.ipynb_checkpoints
+.env
+*.log
+*.tmp
+*.db
