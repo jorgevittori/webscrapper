@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from telegram import Bot
 
 # Determina ambiente: staging — usado localmente com ‘ids’ de teste / prod — usado no git
-enviroment = "staging"
+enviroment = "prod"
 
 if enviroment == "staging":
     load_dotenv()
