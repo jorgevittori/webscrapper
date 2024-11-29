@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from telegram import Bot
 
-# Determina ambiente: staging — usado localmente com ‘ids’ de teste / prod — usado no git
+# Determina ambiente: staging — usado localmente com ‘ids’ de teste / prod — usado no git hub
 enviroment = "prod"
 
 if enviroment == "staging":
@@ -71,8 +71,11 @@ async def send_telegram_message(text, chat_ids):
 async def main():
     # Lista de URLs dos produtos
     product_urls = [
-        'https://www.mercadolivre.com.br/fila-float-maxxi-2-pro-masculino-adultos-esmeralda/p/MLB37880230?product_trigger_id=MLB37880234&attributes=COLOR%3AEsmeralda%2CSIZE%3A40+BR&pdp_filters=item_id%3AMLB3905376889&applied_product_filters=MLB37880234&quantity=1',
+        'https://www.mercadolivre.com.br/tnis-fila-float-maxxi-2-pro-color-esmeralda-adulto-41-br/p/MLB37880234?attributes=COLOR%3AEsmeralda%2CSIZE%3A41%20BR',
         'https://www.mercadolivre.com.br/samsung-galaxy-buds3-fone-de-ouvido-sem-fio-galaxy-ai-cinza/p/MLB38059088?pdp_filters=deal%3AMLB1184464-1#polycard_client=search-nordic&wid=MLB3797351091&sid=search&searchVariation=MLB38059088&position=2&search_layout=grid&type=product&tracking_id=c27e8a5b-7ba4-47e3-91c4-6d85a17bd833',
+        'https://www.mercadolivre.com.br/samsung-galaxy-buds3-fone-de-ouvido-sem-fio-galaxy-ai-cor-branco-luz-branco/p/MLB38087949?product_trigger_id=MLB38059088&pdp_filters=deal%3AMLB1184464-1&applied_product_filters=MLB38059088&quantity=1',
+        'https://www.mercadolivre.com.br/galaxy-buds-2-branco-samsung/p/MLB37005100?pdp_filters=official_store%3A2962#reco_item_pos=0&reco_backend=same-seller-odin&reco_backend_type=low_level&reco_client=pdp-seller_items-above&reco_id=a555107b-cda4-4620-8afb-f0cc3e421582&reco_model=machinalis-sellers-baseline',
+        'https://www.mercadolivre.com.br/samsung-bluetooth-sm-r400nzapzto-branco-1/p/MLB27932663?product_trigger_id=MLB29595951&pdp_filters=official_store%3A2962&applied_product_filters=MLB27932663&quantity=1'
     ]
 
     try:
