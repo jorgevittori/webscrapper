@@ -30,3 +30,9 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}  # Token do Telegram
           TELEGRAM_CHAT_IDS: ${{ secrets.TELEGRAM_CHAT_IDS }}  # IDs de chat (separados por vírgula)
         run: python webscrapper.py
+
+      - name: Upload SQLite database
+        uses: actions/upload-artifact@v3
+        with:
+          name: sqlite-database  # Nome do artefato no GitHub Actions
+          path: scrapper.db      # Caminho para o banco gerado na raiz do projeto
