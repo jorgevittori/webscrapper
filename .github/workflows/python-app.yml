@@ -32,7 +32,7 @@ jobs:
         run: python webscrapper.py
 
       - name: Upload SQLite database
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sqlite-database  # Nome do artefato no GitHub Actions
           path: scrapper.db      # Caminho para o banco gerado na raiz do projeto
