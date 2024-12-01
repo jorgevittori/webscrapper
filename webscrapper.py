@@ -1,9 +1,11 @@
 import asyncio
 import os
+import sqlite3
 import time
 from datetime import datetime, timezone
 
 import nest_asyncio
+import pandas as pd
 import pytz
 import requests
 from bs4 import BeautifulSoup
@@ -61,6 +63,28 @@ def parse_page(html):
         'timestamp': timestamp
     }
 
+def create_connection(db_name = 'scrapper.db'):
+    conn = sqlite3.connect(db_name)
+    return conn
+
+def setup_database(conn):
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS scrapper_prices (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            product_name TEXT,
+            old_price INTEGER,
+            new_price INTEGER,
+            installment_price INTEGER,
+            timestamp TEXT
+        )
+    ''')
+    conn.commit()
+
+def save_to_database(conn, data):
+    df = pd.DataFrame([data])
+    df.to_sql('scrapper_prices', conn, if_exists='append', index=False)
+
 
 async def send_telegram_message(text, chat_ids):
     """Envia uma mensagem para múltiplos chats do Telegram."""
@@ -69,6 +93,9 @@ async def send_telegram_message(text, chat_ids):
 
 
 async def main():
+    conn = create_connection()
+    setup_database(conn)
+
     # Lista de URLs dos produtos
     product_urls = [
         'https://www.mercadolivre.com.br/tnis-fila-float-maxxi-2-pro-color-esmeralda-adulto-41-br/p/MLB37880234?attributes=COLOR%3AEsmeralda%2CSIZE%3A41%20BR',
@@ -100,6 +127,9 @@ async def main():
             chat_ids = TELEGRAM_CHAT_IDS
             for chat_id in chat_ids:
                 await bot.send_message(chat_id=chat_id, text=message, parse_mode='Markdown')
+
+            save_to_database(conn, product_info)
+            print("Dados salvos no banco:", product_info)
 
             # Aguarda alguns segundos entre as requisições para evitar bloqueios
             time.sleep(5)
