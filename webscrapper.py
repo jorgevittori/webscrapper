@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from telegram import Bot
 
-# Determina ambiente: staging — usado localmente com ‘ids’ de teste / prod — usado no git hub
+# Determina ambiente: staging — usado localmente com ‘ids’ de teste / prod — usado no github
 enviroment = "prod"
 
 if enviroment == "staging":
