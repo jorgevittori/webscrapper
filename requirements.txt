@@ -1,7 +1,7 @@
-requests
-pandas
-beautifulsoup4
-python-dotenv
-python-telegram-bot
-pytz
-nest-asyncio
+nest-asyncio~=1.6.0
+pandas~=2.2.3
+pytz~=2024.2
+requests~=2.32.3
+beautifulsoup4~=4.12.3
+python-dotenv~=1.0.1
+python-telegram-bot~=21.7
