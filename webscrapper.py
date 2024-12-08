@@ -47,21 +47,44 @@ def get_brt_timestamp():
 
 def parse_page(html):
     soup = BeautifulSoup(html, 'html.parser')
+
     product_name = soup.find('h1', class_='ui-pdp-title').get_text(strip=True)
-    prices = soup.find_all('span', class_='andes-money-amount__fraction')
-    old_price = int(prices[0].get_text(strip=True).replace('.', ''))
-    new_price = int(prices[1].get_text(strip=True).replace('.', ''))
-    installment_price = int(prices[2].get_text(strip=True).replace('.', ''))
+
+    price_container = soup.find('div', class_='ui-pdp-price__main-container')
+
+    old_price = None
+    new_price = None
+    installment_price = None
+
+    if price_container:
+        old_price_element = price_container.find('span', class_='andes-money-amount__fraction')
+        if old_price_element:
+            old_price = old_price_element.get_text(strip=True).replace('.', '')
+
+        new_price_container = soup.find('div', class_='ui-pdp-price__second-line')
+        if new_price_container:
+            new_price_element = new_price_container.find('span', class_='andes-money-amount__fraction')
+            if new_price_element:
+                new_price = new_price_element.get_text(strip=True).replace('.', '')  # Remove ponto de milhares
+
+        installment_price_element = price_container.find_all('span', class_='andes-money-amount__fraction')
+        if len(installment_price_element) > 2:
+            installment_price = installment_price_element[2].get_text(strip=True).replace('.', '')
 
     timestamp = get_brt_timestamp()
 
     return {
         'product_name': product_name,
-        'old_price': old_price,
-        'new_price': new_price,
-        'installment_price': installment_price,
+        'old_price': int(old_price) if old_price else 0,
+        'new_price': int(new_price) if new_price else 0,
+        'installment_price': int(installment_price) if installment_price else 0,
         'timestamp': timestamp
     }
+
+def debug_soup(html):
+    #Retorna o conteúdo do objeto BeautifulSoup para debug
+    soup = BeautifulSoup(html, 'html.parser')
+    return soup
 
 def create_connection(db_name = 'scrapper.db'):
     conn = sqlite3.connect(db_name)
@@ -140,6 +163,6 @@ async def main():
         print("Execução finalizada com sucesso")
 
 
-nest_asyncio.apply()
+if __name__ == "__main__":
+    asyncio.run(main())
 
-asyncio.run(main())
