@@ -125,7 +125,12 @@ async def main():
         'https://www.mercadolivre.com.br/samsung-galaxy-buds3-fone-de-ouvido-sem-fio-galaxy-ai-cinza/p/MLB38059088?pdp_filters=deal%3AMLB1184464-1#polycard_client=search-nordic&wid=MLB3797351091&sid=search&searchVariation=MLB38059088&position=2&search_layout=grid&type=product&tracking_id=c27e8a5b-7ba4-47e3-91c4-6d85a17bd833',
         'https://www.mercadolivre.com.br/samsung-galaxy-buds3-fone-de-ouvido-sem-fio-galaxy-ai-cor-branco-luz-branco/p/MLB38087949?product_trigger_id=MLB38059088&pdp_filters=deal%3AMLB1184464-1&applied_product_filters=MLB38059088&quantity=1',
         'https://www.mercadolivre.com.br/galaxy-buds-2-branco-samsung/p/MLB37005100?pdp_filters=official_store%3A2962#reco_item_pos=0&reco_backend=same-seller-odin&reco_backend_type=low_level&reco_client=pdp-seller_items-above&reco_id=a555107b-cda4-4620-8afb-f0cc3e421582&reco_model=machinalis-sellers-baseline',
-        'https://www.mercadolivre.com.br/samsung-bluetooth-sm-r400nzapzto-branco-1/p/MLB27932663?product_trigger_id=MLB29595951&pdp_filters=official_store%3A2962&applied_product_filters=MLB27932663&quantity=1'
+        'https://www.mercadolivre.com.br/samsung-bluetooth-sm-r400nzapzto-branco-1/p/MLB27932663?product_trigger_id=MLB29595951&pdp_filters=official_store%3A2962&applied_product_filters=MLB27932663&quantity=1',
+        'https://www.mercadolivre.com.br/lava-loucas-8-servicos-blf08bb-brastemp-cor-branco-220v/p/MLB19714945#polycard_client=search-nordic&wid=MLB2894978352&sid=search&searchVariation=MLB19714945&position=4&search_layout=stack&type=product&tracking_id=96110f96-2ced-4601-8c3a-cf4ea3ca0478',
+        'https://www.mercadolivre.com.br/geladeira-frost-free-duplex-400-l-brm54jb-branca-brastemp-cor-branco-110v/p/MLB26852314#polycard_client=search-nordic&wid=MLB3005552935&sid=search&searchVariation=MLB26852314&position=2&search_layout=stack&type=product&tracking_id=91050e17-9554-4bec-ae80-c8de4145759c',
+        'https://produto.mercadolivre.com.br/MLB-2749470194-lava-e-seca-brastemp-101kg6kg-branca-agua-quente-com-ciclo-_JM?searchVariation=174982136117#polycard_client=search-nordic&searchVariation=174982136117&position=7&search_layout=stack&type=item&tracking_id=0f13c8cb-925b-4447-b606-de613de30817',
+        'https://produto.mercadolivre.com.br/MLB-2749184146-micro-ondas-brastemp-32-litros-branco-com-menu-gourmet-bms-_JM?searchVariation=174981147827#polycard_client=search-nordic&searchVariation=174981147827&position=11&search_layout=stack&type=item&tracking_id=ab67c270-ac41-40bd-90a7-b5a8055b575a'
+
     ]
 
     try:
